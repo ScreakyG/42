@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 17:38:54 by francois          #+#    #+#             */
-/*   Updated: 2022/11/08 19:08:00 by francois         ###   ########.fr       */
+/*   Created: 2022/11/08 21:49:55 by francois          #+#    #+#             */
+/*   Updated: 2022/11/08 21:53:47 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
-	i = 0;
+#include "libft.h"
 
-	while (str[i] != '\0')
-		i++;
-	return (i);
+int	ft_isalnum(int c)
+{
+	if ((ft_isalpha(c) == 1) || (ft_isdigit(c) == 1))
+		return (1);
+	else
+		return (0);
 }
