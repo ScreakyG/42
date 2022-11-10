@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 12:37:49 by francois          #+#    #+#             */
-/*   Updated: 2022/11/10 14:55:22 by francois         ###   ########.fr       */
+/*   Created: 2022/11/10 11:41:00 by francois          #+#    #+#             */
+/*   Updated: 2022/11/10 15:04:12 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+#include <stddef.h>
+
+void 	ft_bzero(void *s, size_t n)
 {
-	int	i;
-	int	signe;
-	int	resultat;
+	size_t	i;
+	char	*ptr;
 
 	i = 0;
-	signe = 1;
-	resultat = 0;
+	ptr = (char *)s;
 
-	while (nptr[i] == 32 || nptr[i] == 13 || nptr[i] == 9)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	while (i < n)
 	{
-		if (nptr[i] == '-')
-			signe *= -1;
+		ptr[i] = 0;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		resultat *= 10;
-		resultat += nptr[i] - '0';
-		i++;
-	}
-	return (resultat * signe);	
 }
