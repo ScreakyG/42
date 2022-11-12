@@ -6,12 +6,12 @@
 #    By: francois <francois@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 17:49:17 by francois          #+#    #+#              #
-#    Updated: 2022/11/08 21:17:36 by francois         ###   ########.fr        #
+#    Updated: 2022/11/12 17:08:02 by francois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror 
 
 all: ${NAME}
 

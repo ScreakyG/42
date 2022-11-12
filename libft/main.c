@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "libft.h"
+#include <string.h>
 
 int	main()
 {
-	char	src[] = "Salut test";
-	char	dest[50] = "WOuhoo";
+	char	dest[] = "Salut c'est le sucre";
+	char	src[] = "Bonjour";
 
-	printf("Avant memcpy dest = %s\n", dest);
-	ft_memmove(dest, src, (ft_strlen(src) +1));
-	printf("Apres memcpy dest = %s", dest);
+	printf("%ld", ft_strlcpy(dest, src, 10));
 }
+ 

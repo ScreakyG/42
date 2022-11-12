@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 17:42:33 by francois          #+#    #+#             */
-/*   Updated: 2022/11/12 16:35:58 by francois         ###   ########.fr       */
+/*   Created: 2022/11/12 18:22:09 by francois          #+#    #+#             */
+/*   Updated: 2022/11/12 18:47:33 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t i;
-	char	*ptrdest;
-	char	*ptrsrc;
+	size_t j;
+	char	*str;
+	char	*to_find;
 
 	i = 0;
-	ptrdest = (char *)dest;
-	ptrsrc = (char *)src;
+	str = (char *)big;
+	to_find = (char *)little;
 
-	if (dest > src)
-	{
-		while (n > 0)
-		{
-			ptrdest[n - 1] = ptrsrc[n - 1];
-			n--;
-		}
-	}
+	if (to_find[i] == '\0')
+		return (str);
 
-	else
+	while (str[i] != '\0' && i < len)
 	{
-		while (i < n)
+		j = 0;
+		while (str[i + j] == to_find[j])
 		{
-			ptrdest[i] = ptrsrc[i];
-			i++;
+			if (to_find[j + 1] == '\0')
+				return (&str[i]);
+			j++;
 		}
+		i++;
 	}
-	return (dest);
+	return (0);
 }
