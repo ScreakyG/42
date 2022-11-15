@@ -4,9 +4,14 @@
 
 int	main()
 {
-	char	dest[] = "Salut c'est le sucre";
-	char	src[] = "Bonjour";
+	char	dest[] = "Salut";
+	char	src[] = "ça va ?";
+	size_t	cat;
 
-	printf("%ld", ft_strlcpy(dest, src, 10));
+	cat = ft_strlcat(dest, src, 30);
+
+	printf("%ld\n", cat);
+	printf("%s\n", dest);
+
 }
  
