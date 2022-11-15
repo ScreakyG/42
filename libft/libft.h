@@ -6,7 +6,7 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:19:54 by francois          #+#    #+#             */
-/*   Updated: 2022/11/15 03:45:46 by francois         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:59:09 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define LIBFT_H
 
 #include <stddef.h>
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *str);
 int	ft_isalpha(int c);
@@ -38,5 +39,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 char	*ft_strdup(const char *s);
 char	**ft_split(char const *s, char c);
+char	*ft_substr(char const *str, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
