@@ -16,16 +16,14 @@
 char	*ft_strdup(const char *str)
 {
 	char	*copy;
-	size_t i;
-	size_t len;
+	size_t	i;
+	size_t	len;
 
 	len = ft_strlen(str);
 	i = 0;
 	copy = malloc((len + 1) * sizeof(char));
-
-	if(!copy)
+	if (!copy)
 		return (0);
-
 	while (str[i] != '\0')
 	{
 		copy[i] = str[i];

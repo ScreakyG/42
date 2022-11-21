@@ -12,7 +12,6 @@
 
 #include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -29,7 +28,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	lens2 = ft_strlen(s2);
 	if (!(join = malloc((lens1 + lens2 + 1) * sizeof(char))))
 		return (0);
-	
 	while (s1[i] != '\0')
 	{
 		join[i] = s1[i];

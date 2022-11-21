@@ -1,8 +1,18 @@
-#include <stdio.h>
-#include "libft.h"
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/21 15:37:13 by francois          #+#    #+#             */
+/*   Updated: 2022/11/21 22:10:54 by francois         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int    is_spacer(char str, char c)
+#include "libft.h"
+
+static int    is_spacer(char str, char c)
 {
     if (str == c)
         return (1);
@@ -11,7 +21,7 @@ int    is_spacer(char str, char c)
     return (0);
 }
 
-char    *filltab(const char *str, char c, char *tab)
+static char    *filltab(const char *str, char c, char *tab)
 {
     int    i;
 
@@ -26,7 +36,7 @@ char    *filltab(const char *str, char c, char *tab)
     return (tab);
 }
 
-char    **filltabtab(const char *str, char c, char **tabtab)
+static char    **filltabtab(const char *str, char c, char **tabtab)
 {
     int    i;
     int    j;
@@ -65,7 +75,7 @@ char    **filltabtab(const char *str, char c, char **tabtab)
     return (tabtab);
 }
 
-int    nbmots(char const *str, char c)
+static int    nbmots(char const *str, char c)
 {
     int    i;
     int    mots;

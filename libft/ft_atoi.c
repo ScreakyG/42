@@ -6,9 +6,11 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:37:49 by francois          #+#    #+#             */
-/*   Updated: 2022/11/10 14:55:22 by francois         ###   ########.fr       */
+/*   Updated: 2022/11/21 22:07:40 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -19,8 +21,8 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	signe = 1;
 	resultat = 0;
-
-	while (nptr[i] == 32 || nptr[i] == 13 || nptr[i] == 9)
+	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\r' ||
+	 nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\n')
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
@@ -34,5 +36,5 @@ int	ft_atoi(const char *nptr)
 		resultat += nptr[i] - '0';
 		i++;
 	}
-	return (resultat * signe);	
+	return (resultat * signe);
 }
