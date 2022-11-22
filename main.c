@@ -3,9 +3,7 @@
 
 int	main()
 {
-	char	chaine[] = "   123";
-
-	printf("Mon atoi : %d\n", ft_atoi(chaine));
-	printf("Vrai atoi : %d\n", ft_atoi(chaine));
-	
+	printf("Mon ft_itoa : %s\n", ft_itoa(-2147483648));
 }
+
+

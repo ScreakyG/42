@@ -6,11 +6,32 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:56:30 by francois          #+#    #+#             */
-/*   Updated: 2022/11/21 22:09:48 by francois         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:59:41 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*fill(size_t size, size_t len, size_t i, const char *s1)
+{
+	size_t	j;
+	char	*copy;
+
+	j = 0;
+	while (size < len)
+		size++;
+	copy = malloc((size + 1) * sizeof(char));
+	if (copy == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		copy[j] = s1[i];
+		j++;
+		i++;
+	}
+	copy[j] = '\0';
+	return (copy);
+}
 
 static int	is_charset(char str, char *charset)
 {
@@ -30,38 +51,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	i;
-	size_t	j;
 	size_t	size;
-	char	*copy;
-	char	*charset;
 
 	if (s1 == 0)
 		return (NULL);
-	charset = (char *)set;
-	j = 0;
 	i = 0;
 	len = ft_strlen(s1);
-	while (is_charset(s1[len - 1], charset) == 1)
-	{
+	while (is_charset(s1[len - 1], (char *)set) == 1)
 		len--;
-	}
-	while (is_charset(s1[i], charset) == 1)
-	{
+	while (is_charset(s1[i], (char *)set) == 1)
 		i++;
-	}
 	size = i;
-	while (size < len)
-	{
-		size++;
-	}
-	if (!(copy = malloc((size + 1) * sizeof(char))))
-		return (NULL);
-	while (i < len)
-	{
-		copy[j] = s1[i];
-		j++;
-		i++;
-	}
-	copy[j] = '\0';
-	return (copy);
+	return (fill(size, len, i, s1));
 }
