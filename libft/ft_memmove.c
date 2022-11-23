@@ -6,38 +6,45 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:42:33 by francois          #+#    #+#             */
-/*   Updated: 2022/11/22 17:03:13 by francois         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:18:05 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+static void	gauchetodroite(size_t n, char *ptrdest, char *ptrsrc)
 {
 	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		ptrdest[i] = ptrsrc[i];
+		i++;
+	}
+}
+
+static void	droitetogauche(size_t n, char *ptrdest, char *ptrsrc)
+{
+	while (n > 0)
+	{
+		ptrdest[n - 1] = ptrsrc[n - 1];
+		n--;
+	}
+}
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
 	char	*ptrdest;
 	char	*ptrsrc;
 
-	i = 0;
 	ptrdest = (char *)dest;
 	ptrsrc = (char *)src;
 	if (!dest || !src)
 		return (NULL);
 	if (dest > src)
-	{
-		while (n > 0)
-		{
-			ptrdest[n - 1] = ptrsrc[n - 1];
-			n--;
-		}
-	}
+		droitetogauche(n, ptrdest, ptrsrc);
 	else
-	{
-		while (i < n)
-		{
-			ptrdest[i] = ptrsrc[i];
-			i++;
-		}
-	}
+		gauchetodroite(n, ptrdest, ptrsrc);
 	return (dest);
 }

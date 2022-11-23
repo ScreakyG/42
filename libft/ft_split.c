@@ -12,27 +12,47 @@
 
 #include "libft.h"
 
-static int	is_spacer(char str, char c)
-{
-	if (str == c)
-		return (1);
-	if (str == '\0')
-		return (0);
-	return (0);
-}
-
 static char	*filltab(const char *str, char c, char *tab)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0' && (is_spacer(str[i], c) == 0))
+	while (str[i] != '\0' && (str[i] != c))
 	{
 		tab[i] = str[i];
 		i++;
 	}
 	tab[i] = '\0';
 	return (tab);
+}
+
+static char	**filltabtabsuite(const char *str, char c, char **tabtab)
+{
+	int	i;
+	int	j;
+	int	index;
+
+	i = 0;
+	j = 0;
+	index = 0;
+	while (str[i] != '\0' && str[i] == c)
+		i++;
+	while (str[i] != '\0')
+	{
+		if (str[i] == c)
+			i++;
+		else
+		{
+			j = 0;
+			while (str[i + j] != '\0' && str[i + j] != c)
+				j++;
+			tabtab[index] = malloc ((j + 1) * sizeof(char));
+			tabtab[index] = filltab(&str[i], c, tabtab[index]);
+			index++;
+			i = i + j;
+		}
+	}
+	return (tabtab);
 }
 
 static char	**filltabtab(const char *str, char c, char **tabtab)
@@ -49,23 +69,8 @@ static char	**filltabtab(const char *str, char c, char **tabtab)
 		tabtab[index] = malloc ((j + 1) * sizeof(char));
 		tabtab[index] = '\0';
 	}
-	while (str[i] != '\0' && (is_spacer(str[i], c) == 1))
-		i++;
-	while (str[i] != '\0')
-	{
-		if (is_spacer(str[i], c) == 1)
-			i++;
-		else
-		{
-			j = 0;
-			while (str[i + j] != '\0' && is_spacer(str[i + j], c) == 0)
-				j++;
-			tabtab[index] = malloc ((j + 1) * sizeof(char));
-			tabtab[index] = filltab(&str[i], c, tabtab[index]);
-			index++;
-			i = i + j;
-		}
-	}
+	else
+		filltabtabsuite(str, c, tabtab);
 	return (tabtab);
 }
 
@@ -78,11 +83,11 @@ static int	nbmots(char const *str, char c)
 	mots = 0;
 	if (str[i] == '\0')
 		return (1);
-	while (str[i] != '\0' && (is_spacer(str[i], c) == 1))
+	while (str[i] != '\0' && (str[i] == c))
 		i++;
 	while (str[i] != '\0')
 	{
-		if ((is_spacer(str[i], c) == 1) && (is_spacer(str[i + 1], c) == 0))
+		if (str[i] == c && str[i + 1] != c)
 			mots++;
 		i++;
 	}
@@ -94,7 +99,7 @@ static int	nbmots(char const *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**tabtab;
-	int	mots;
+	int		mots;
 
 	if (s == 0)
 		return (0);
