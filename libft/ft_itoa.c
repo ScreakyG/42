@@ -6,7 +6,7 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:15:31 by francois          #+#    #+#             */
-/*   Updated: 2022/11/22 16:37:10 by francois         ###   ########.fr       */
+/*   Updated: 2022/12/03 00:43:17 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	ft_countnbr(int n)
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n *= -1;

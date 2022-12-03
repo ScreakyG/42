@@ -6,7 +6,7 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:19:54 by francois          #+#    #+#             */
-/*   Updated: 2022/11/17 17:39:00 by francois         ###   ########.fr       */
+/*   Updated: 2022/12/03 00:30:24 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdint.h>
 
 size_t	ft_strlen(const char *str);
 int	ft_isalpha(int c);

@@ -6,7 +6,7 @@
 /*   By: francois <francois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:37:13 by francois          #+#    #+#             */
-/*   Updated: 2022/11/22 17:35:02 by francois         ###   ########.fr       */
+/*   Updated: 2022/12/03 01:19:02 by francois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	mots = nbmots(s, c);
 	tabtab = malloc((mots + 1) * sizeof(char *));
+	if (!tabtab)
+		return (0);
 	tabtab[mots] = '\0';
 	tabtab = filltabtab(s, c, tabtab);
 	return (tabtab);

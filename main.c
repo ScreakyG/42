@@ -3,7 +3,7 @@
 
 int	main()
 {
-	printf("Mon ft_itoa : %s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(-623));
 }
 
 

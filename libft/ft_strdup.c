@@ -28,5 +28,6 @@ char	*ft_strdup(const char *str)
 		copy[i] = str[i];
 		i++;
 	}
+	copy[i] = '\0';
 	return (copy);
 }
