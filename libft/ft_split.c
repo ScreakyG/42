@@ -63,6 +63,8 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	char	**tabtab;
 
+	if (!s)
+		return (0);
 	i = 0;
 	words_total = ft_countwords(s, c);
 	tabtab = malloc((words_total + 1) * sizeof(char *));
@@ -74,9 +76,8 @@ char	**ft_split(char const *s, char c)
 		if (words_len > 0)
 		{
 			tabtab[i] = ft_substr(s, 0, words_len);
-			if (!tabtab[i])
+			if (!tabtab[i++])
 				return (ft_free(tabtab, i), NULL);
-			i++;
 		}
 		s = &s[words_len + 1];
 	}
