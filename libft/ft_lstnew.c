@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 17:42:33 by francois          #+#    #+#             */
-/*   Updated: 2022/12/13 23:18:14 by fgonzale         ###   ########.fr       */
+/*   Created: 2022/12/13 23:49:11 by fgonzale          #+#    #+#             */
+/*   Updated: 2022/12/14 02:09:53 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	t_list	*new;
+
+	new = malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
