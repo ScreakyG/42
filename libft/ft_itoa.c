@@ -6,13 +6,13 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:42:33 by francois          #+#    #+#             */
-/*   Updated: 2022/12/13 23:04:42 by fgonzale         ###   ########.fr       */
+/*   Updated: 2022/12/19 01:32:15 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*fill(char *str, int size, int n)
+static char	*fill(char *str, int size, long n)
 {
 	if (n == 0)
 	{
@@ -32,7 +32,7 @@ static char	*fill(char *str, int size, int n)
 	return (str);
 }
 
-static int	ft_countnbr(int n)
+static int	ft_countnbr(long n)
 {
 	int	count;
 
@@ -55,20 +55,15 @@ static int	ft_countnbr(int n)
 char	*ft_itoa(int n)
 {
 	int		size;
-	int		nb;
+	long	nb;
 	char	*str;
 
 	nb = n;
 	size = ft_countnbr(nb);
-	if (n == -2147483648)
-	{
-		str = ft_strdup("-2147483648");
-		return (str);
-	}
 	str = malloc((size + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	str[size] = '\0';
 	size--;
-	return (fill(str, size, n));
+	return (fill(str, size, nb));
 }
